@@ -1,33 +1,48 @@
 import Link from "next/link";
 import "./globals.css";
-import {
-  RegisterLink,
-  LoginLink,
-} from "@kinde-oss/kinde-auth-nextjs/components";
-{
-  /* <RegisterLink>Sign up</RegisterLink> */
-}
+import { LoginLink, LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  let user = null;
+  try {
+    const { getUser } = getKindeServerSession();
+    user = await getUser();
+  } catch (error) {
+    console.error("Failed to fetch user:", error);
+  }
+
   return (
     <html lang="en">
       <body>
-        {/*navSection */}
+        {/* Navigation Section */}
         <div className="navbar bg-base-100">
           <div className="flex-1">
-            <button className="btn btn-ghost text-xl">Blog VIew</button>
+            <Link href="/" className="btn btn-ghost text-xl">
+              Blog View
+            </Link>
           </div>
           <div className="flex-none">
-            <ul className="menu menu-horizontal px-1">
+            <ul className="menu menu-horizontal px-1 space-x-4">
               <li>
-                <Link href="/"> Home</Link>
+                <Link href="/">Home</Link>
               </li>
-              <li>
-                <Link href="/profile"> Profile</Link>
-              </li>
-              <li>
-                <LoginLink>Sign in</LoginLink>
-              </li>
+              {user ? (
+                <>
+                  <li>
+                    <Link href="/profile">Profile</Link>
+                  </li>
+                  <li>
+                    <LogoutLink>Logout</LogoutLink>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <LoginLink>Login</LoginLink>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </div>
