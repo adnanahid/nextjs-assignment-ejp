@@ -1,18 +1,34 @@
+import axios from "axios";
 import Link from "next/link";
 
 export default async function HomePage() {
-  const response = await fetch("https://jsonplaceholder.typicode.com/posts");
-  const posts = await response.json();
+  const response = await axios.get(
+    "https://jsonplaceholder.typicode.com/posts"
+  );
+  const posts = response.data;
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold mb-4">Blog Posts</h1>
-      <ul>
-        {posts.map((post) => (
-          <li key={post.id} className="mb-2">
-            <Link href={`/blog/${post.id}`}>{post.title}</Link>
-          </li>
-        ))}
-      </ul>
+    <div className="p-6 min-h-screen">
+      <div className="max-w-screen-xl mx-auto">
+        <h1 className="text-4xl font-bold mb-6 text-center text-[#4d4d4d]">
+          Blog Posts
+        </h1>
+        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {posts.map((post) => (
+            <li
+              key={post.id}
+              className="p-4 border rounded-lg shadow-lg hover:shadow-xl transition-shadow bg-white"
+            >
+              <Link
+                href={`/blog/${post.id}`}
+                className="text-lg font-semibold text-[#4d4d4d] hover:underline"
+              >
+                <p className="text-sm">Blog id: {post.id}</p>
+                <h1>{post.title.slice(0, 20)}...</h1>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
