@@ -9,7 +9,6 @@ export default async function Profile() {
   } catch (error) {
     console.error("Failed to fetch user:", error);
   }
-console.log(user);
   return (
     <div
       className="flex items-center justify-center "

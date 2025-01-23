@@ -19,7 +19,7 @@ export default async function BlogDetails({ params }) {
 
   return (
     <div
-      className="flex items-center justify-center"
+      className="flex items-center justify-center p-2"
       style={{ minHeight: "calc(100vh - 68px)" }}
     >
       <div className="p-6 max-w-[600px] mx-auto rounded-lg shadow-lg">
