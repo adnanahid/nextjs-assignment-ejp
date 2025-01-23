@@ -10,7 +10,7 @@ export default async function HomePage() {
     <div className="p-6 min-h-screen">
       <div className="max-w-screen-xl mx-auto">
         <h1 className="text-4xl font-bold mb-6 text-center text-[#4d4d4d]">
-          Blog Post
+          Blog Posts
         </h1>
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {posts.map((post) => (
