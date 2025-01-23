@@ -1,5 +1,12 @@
 import Link from "next/link";
 import "./globals.css";
+import {
+  RegisterLink,
+  LoginLink,
+} from "@kinde-oss/kinde-auth-nextjs/components";
+{
+  /* <RegisterLink>Sign up</RegisterLink> */
+}
 
 export default function RootLayout({ children }) {
   return (
@@ -8,7 +15,7 @@ export default function RootLayout({ children }) {
         {/*navSection */}
         <div className="navbar bg-base-100">
           <div className="flex-1">
-            <a className="btn btn-ghost text-xl">Blog VIew</a>
+            <button className="btn btn-ghost text-xl">Blog VIew</button>
           </div>
           <div className="flex-none">
             <ul className="menu menu-horizontal px-1">
@@ -19,10 +26,7 @@ export default function RootLayout({ children }) {
                 <Link href="/profile"> Profile</Link>
               </li>
               <li>
-                <Link href="/"> Login</Link>
-              </li>
-              <li>
-                <Link href="/"> Logout</Link>
+                <LoginLink>Sign in</LoginLink>
               </li>
             </ul>
           </div>

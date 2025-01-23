@@ -36,6 +36,8 @@ export default async function HomePage() {
 // ├── public/
 // ├── src/
 // │   ├── app/
+// │   │   ├── api
+//         |    ├──auth
 // │   │   ├── page.js
 // │   │   ├── blog/
 // │   │   │   ├── [id]/
