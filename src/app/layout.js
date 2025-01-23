@@ -2,7 +2,7 @@ import Link from "next/link";
 import "./globals.css";
 import { LoginLink, LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import { redirect } from "next/navigation";
+
 
 export default async function RootLayout({ children }) {
   let user = null;
