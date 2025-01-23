@@ -9,6 +9,12 @@ export default async function Profile() {
   } catch (error) {
     console.error("Failed to fetch user:", error);
   }
+
+  const { isAuthenticated } = getKindeServerSession();
+  if (!(await isAuthenticated())) {
+    redirect("/api/auth/login");
+  }
+
   return (
     <div
       className="flex items-center justify-center "
@@ -20,7 +26,9 @@ export default async function Profile() {
           <div className="space-y-4">
             <div>
               <p className="text-sm font-medium text-gray-500">Name:</p>
-              <p className="text-lg text-gray-800">{user.given_name} {user.family_name}</p>
+              <p className="text-lg text-gray-800">
+                {user.given_name} {user.family_name}
+              </p>
             </div>
             <div>
               <p className="text-sm font-medium text-gray-500">Email:</p>

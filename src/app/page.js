@@ -6,6 +6,7 @@ export default async function HomePage() {
     "https://jsonplaceholder.typicode.com/posts"
   );
   const posts = response.data;
+  
   return (
     <div className="p-6 min-h-screen">
       <div className="max-w-screen-xl mx-auto">
