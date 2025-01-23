@@ -1,17 +1,15 @@
 export async function generateStaticParams() {
-  // Fetch all posts to generate static paths
   const response = await fetch("https://jsonplaceholder.typicode.com/posts");
   const posts = await response.json();
 
   return posts.map((post) => ({
-    id: post.id.toString(), // Ensure IDs are strings for routing
+    id: post.id.toString(),
   }));
 }
 
 export default async function BlogDetails({ params }) {
   const { id } = params;
 
-  // Fetch the blog post details using the ID
   const response = await fetch(
     `https://jsonplaceholder.typicode.com/posts/${id}`
   );

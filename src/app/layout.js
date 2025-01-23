@@ -19,10 +19,10 @@ export default function RootLayout({ children }) {
                 <Link href="/profile"> Profile</Link>
               </li>
               <li>
-                <Link href="/login"> Login</Link>
+                <Link href="/"> Login</Link>
               </li>
               <li>
-                <Link href="/blog"> Logout</Link>
+                <Link href="/"> Logout</Link>
               </li>
             </ul>
           </div>
