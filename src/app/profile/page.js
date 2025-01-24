@@ -71,7 +71,9 @@ export default async function Profile() {
       style={{ minHeight: "calc(100vh - 68px)" }}
     >
       <div className="p-6 max-w-[400px] mx-auto rounded-lg shadow-lg">
-        <h1 className="text-2xl font-bold mb-4 text-center">Your Profile</h1>
+        <h1 className="text-2xl font-bold mb-4 text-center">
+          Welcome to your profile!
+        </h1>
         {user ? (
           <div className="space-y-4">
             <div>
